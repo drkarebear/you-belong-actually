@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="College, Translated turns common community college phrases into plain-language next steps: office hours, waitlists, prerequisites, Canvas zeros, academic notice, ASSIST, SAP, and more.">
+  <title>College, Translated | You Belong, Actually</title>
+  <link rel="icon" type="image/png" href="favicon16.png">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#1239c7">
+  <script src="translated.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <nav class="nav-wrap" aria-label="Main navigation">
+    <a class="brand" href="index.html"><img src="favicon16.png" alt=""><span>You Belong, Actually</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#start">Start Here</a></li>
+      <li><a aria-current="page" href="college-translated.html">College, Translated</a></li>
+      <li><a href="hidden-rules.html">College Decoder</a></li>
+      <li><a href="who-to-ask.html">Need Help?</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="page-hero translated-hero">
+    <nav aria-label="Breadcrumb" class="breadcrumbs"><a href="index.html">Home</a> / College, Translated</nav>
+    <p class="eyebrow">College, Translated</p>
+    <h1>They Said That. What Do I Do Now?</h1>
+    <p class="page-lede">Sometimes you know every word in the sentence and still have no idea what the college expects you to do next.</p>
+    <p class="page-note"><strong>That is a translation problem, not a you problem.</strong> Find the phrase you heard and get the plain-language version.</p>
+  </section>
+
+  <section class="section narrow" aria-labelledby="heard-heading">
+    <div class="translated-tool">
+      <div class="section-heading">
+        <p class="eyebrow">Find the phrase</p>
+        <h2 id="heard-heading">What did someone tell you?</h2>
+        <p>Type a word or phrase, or jump to one of the common moments below.</p>
+      </div>
+      <label for="translated-search"><strong>Phrase or situation</strong></label>
+      <div class="translated-search-row">
+        <input class="translated-search" id="translated-search" type="search" autocomplete="off" spellcheck="false" placeholder="Example: office hours" aria-controls="scenario-list">
+        <button class="clear-search" id="translated-clear" type="button" hidden>Clear</button>
+      </div>
+      <p class="decoder-status" id="translated-status" aria-live="polite">12 common situations available.</p>
+      <noscript><p class="callout">Search needs JavaScript, but every situation is still listed below.</p></noscript>
+    </div>
+  </section>
+
+  <section class="section narrow" aria-labelledby="common-heading">
+    <div class="section-heading">
+      <p class="eyebrow">Common moments</p>
+      <h2 id="common-heading">Jump straight to the sentence you heard.</h2>
+    </div>
+    <div class="scenario-grid">
+      <a class="scenario-jump" href="#office-hours"><strong>“Come to office hours.”</strong><small>No, it does not mean you are in trouble.</small></a>
+      <a class="scenario-jump" href="#canvas-zero"><strong>“Canvas says I got a zero.”</strong><small>First figure out what that zero actually means.</small></a>
+      <a class="scenario-jump" href="#prerequisite"><strong>“Prerequisite not met.”</strong><small>The registration system thinks a requirement is missing.</small></a>
+      <a class="scenario-jump" href="#waitlist"><strong>“You’re on the waitlist.”</strong><small>Close to enrolled is not the same as enrolled.</small></a>
+      <a class="scenario-jump" href="#academic-notice"><strong>“You’re on academic notice.”</strong><small>A status that needs attention, not a verdict on you.</small></a>
+      <a class="scenario-jump" href="#assist"><strong>“Check ASSIST.”</strong><small>They mean the official California articulation tool.</small></a>
+    </div>
+  </section>
+
+  <section class="section narrow" aria-labelledby="translations-heading">
+    <div class="section-heading">
+      <p class="eyebrow">Plain-language next steps</p>
+      <h2 id="translations-heading">Open only the situation you need.</h2>
+      <p>Each one gives you: what they probably mean, what to do next, and words you can borrow.</p>
+    </div>
+
+    <div class="scenario-list" id="scenario-list">
+      <details class="scenario-item" id="office-hours" data-search="office hours professor instructor meeting appointment help questions faculty">
+        <summary><span class="scenario-phrase">“Come to office hours.”</span><span class="scenario-tag">Class</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> your instructor has time set aside specifically for students to ask questions, get clarification, or talk through a problem.</div>
+            <div class="translate-step"><strong>What to do next:</strong> check the syllabus or course site for the time and whether you need an appointment. Bring one question, assignment, comment, or confusing part.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “Could I use office hours to make sure I understand what you’re looking for on this assignment?”</div>
+          <p><a href="ask-for-help.html#instructor"><strong>More help with office hours and asking questions</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="syllabus" data-search="check the syllabus course policies dates rules grading due date late work instructor">
+        <summary><span class="scenario-phrase">“Check the syllabus.”</span><span class="scenario-tag">Class</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> the answer may be in the course guide, especially for dates, grading, late work, attendance, communication, or class procedures.</div>
+            <div class="translate-step"><strong>What to do next:</strong> search the syllabus for the specific topic. If the policy is still unclear or your situation is unusual, ask.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “I checked the syllabus section on late work, but I’m still not sure how it applies to this assignment. Could you clarify?”</div>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="rubric" data-search="look at the rubric grading criteria assignment points score feedback revise">
+        <summary><span class="scenario-phrase">“Look at the rubric.”</span><span class="scenario-tag">Class</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> the rubric shows the criteria your instructor is using to evaluate the assignment.</div>
+            <div class="translate-step"><strong>What to do next:</strong> compare your work to one rubric row at a time. Look for the first place where what you submitted and what the criterion asks for do not match.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “On the rubric, I’m not sure what the difference is between these two levels. Could you show me what would move my work up one level?”</div>
+          <p><a href="bad-grade.html"><strong>If the rubric came with a grade that hit hard, start here</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="canvas-zero" data-search="Canvas zero missing grade assignment 0 points not submitted late placeholder gradebook">
+        <summary><span class="scenario-phrase">“Canvas says I got a zero.”</span><span class="scenario-tag">Grades</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> the gradebook is showing zero points, but you still need to find out why. It could be a scored zero, missing work, a late-work rule, or a gradebook setting.</div>
+            <div class="translate-step"><strong>What to do next:</strong> open the assignment, read any submission status and feedback, check the course policy, and confirm what can still be done before assuming the answer is “nothing.”</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “Canvas shows a zero for ___. I want to make sure I understand why. Is it missing, graded as zero, or something I can still address?”</div>
+          <p><a href="bad-grade.html"><strong>Use the bad-grade recovery guide</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="prerequisite" data-search="prerequisite not met registration error enroll class prerequisite clearance transcript placement counselor">
+        <summary><span class="scenario-phrase">“Prerequisite not met.”</span><span class="scenario-tag">Registration</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> the registration system does not currently see the required prior course, placement, or other prerequisite on your record.</div>
+            <div class="translate-step"><strong>What to do next:</strong> check the course prerequisite and your record. If you completed equivalent work elsewhere or think the system is wrong, ask your college which office handles prerequisite clearance or transcript evaluation.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “Registration says ‘prerequisite not met’ for ___. I completed ___ at ___. Who can tell me whether that satisfies the prerequisite?”</div>
+          <p><a href="who-to-ask.html"><strong>Find the right campus office</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="waitlist" data-search="waitlist waiting list class full enroll add code instructor first day registration">
+        <summary><span class="scenario-phrase">“You’re on the waitlist.”</span><span class="scenario-tag">Registration</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> the class is currently full and you are waiting for a possible opening. You are not enrolled unless your registration record says you are enrolled.</div>
+            <div class="translate-step"><strong>What to do next:</strong> watch your college email and registration status, and follow the college or instructor’s instructions for waitlisted students. Add-code and first-day procedures vary by college and class.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “I’m currently on the waitlist for your class. Is there anything you want waitlisted students to do before or on the first day?”</div>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="counselor" data-search="see a counselor counseling academic advising education plan major transfer classes schedule ed plan">
+        <summary><span class="scenario-phrase">“You should see a counselor.”</span><span class="scenario-tag">Planning</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> the question affects your education plan, major, transfer path, graduation requirements, course sequence, or another decision that depends on your individual record.</div>
+            <div class="translate-step"><strong>What to do next:</strong> make the appointment and bring the actual question. You do not need to arrive with your whole future figured out.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “I’m trying to decide ___. Can we look at how each option would affect my education plan?”</div>
+          <p><a href="who-to-ask.html#counseling"><strong>What counseling usually handles</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="assist" data-search="check ASSIST articulation transfer course counts major UC CSU requirement agreement assist.org">
+        <summary><span class="scenario-phrase">“Check ASSIST.”</span><span class="scenario-tag">Transfer</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> they want you to look at California’s official articulation information to see how community college courses may satisfy requirements at a transfer institution.</div>
+            <div class="translate-step"><strong>What to do next:</strong> use the correct community college, university, academic year, and major when you review an agreement. If the stakes are high, confirm your interpretation with counseling.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “I found the agreement in ASSIST, but I want to make sure I’m reading it correctly. Does ___ satisfy the requirement I need for ___?”</div>
+          <p><a href="hidden-rules.html#term-assist"><strong>Decode ASSIST and articulation</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="transferable" data-search="class is transferable transfer credit counts UC CSU major GE requirement articulation">
+        <summary><span class="scenario-phrase">“This class is transferable.”</span><span class="scenario-tag">Transfer</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> a university may accept the course for transfer credit.</div>
+            <div class="translate-step"><strong>The hidden part:</strong> transferable does not automatically mean “counts for my major,” “meets my GE requirement,” or “works at every campus.”</div>
+            <div class="translate-step"><strong>What to do next:</strong> check the specific articulation or transfer requirement for your destination and major.</div>
+          </div>
+          <p><a href="hidden-rules.html#term-transferable"><strong>Decode “transferable”</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="academic-notice" data-search="academic notice progress notice probation academic probation GPA standing warning pause dismissal">
+        <summary><span class="scenario-phrase">“You’re on academic notice.”</span><span class="scenario-tag">Standing</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> your cumulative grades or course-completion pattern has reached a level that requires attention under college rules. You may still hear the older word “probation.”</div>
+            <div class="translate-step"><strong>What to do next:</strong> read the notice carefully, find the specific condition it names, and meet with the campus office it directs you to. Ask what needs to change and by when.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “I received an academic notice and want to understand exactly what put me on notice and what I need to do next.”</div>
+          <p><a href="hidden-rules.html#term-notice"><strong>Decode academic and progress notice</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="withdraw" data-search="withdraw drop W EW deadline class leave financial aid enrollment transcript counselor">
+        <summary><span class="scenario-phrase">“You can still withdraw.”</span><span class="scenario-tag">Enrollment</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> you may still be within a deadline to leave the class, but the result on your record and the consequences depend on timing and your situation.</div>
+            <div class="translate-step"><strong>What to do next:</strong> check the actual deadline and notation, your current course standing, and any possible effect on financial aid, enrollment status, or your education plan before deciding.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “Before I withdraw from ___, can you help me check what it would mean for my record, aid, and education plan?”</div>
+          <p><a href="falling-behind.html"><strong>If you are deciding because you are behind, triage the class first</strong></a></p>
+        </div>
+      </details>
+
+      <details class="scenario-item" id="sap" data-search="SAP satisfactory academic progress financial aid warning GPA pace maximum timeframe appeal aid eligibility">
+        <summary><span class="scenario-phrase">“There’s a SAP issue with your financial aid.”</span><span class="scenario-tag">Money & aid</span></summary>
+        <div class="detail-body">
+          <div class="translate-flow">
+            <div class="translate-step"><strong>Translation:</strong> SAP means Satisfactory Academic Progress. Financial aid programs have academic-progress rules that can include GPA, how many attempted units you complete, and maximum timeframe.</div>
+            <div class="translate-step"><strong>What to do next:</strong> read the notice from your financial aid office and ask which SAP requirement is affecting you, what status you are in, and whether there is an appeal or other next step available under your college’s policy.</div>
+          </div>
+          <div class="say-this"><strong>You can say:</strong> “My financial aid notice mentions SAP. Which requirement am I not meeting, and what options do I have from here?”</div>
+          <p><a href="who-to-ask.html#financial-aid"><strong>Find financial-aid help</strong></a></p>
+        </div>
+      </details>
+    </div>
+
+    <div class="scenario-no-results" id="translated-no-results" hidden>
+      <h3>No exact match yet.</h3>
+      <p>Try a shorter word. If you are looking for a definition, use the College Decoder. If you need a person, use “Who Handles This?”</p>
+      <div class="button-row">
+        <a class="button secondary" href="hidden-rules.html">Search the College Decoder</a>
+        <a class="button secondary" href="who-to-ask.html">Find the right person</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section narrow" aria-labelledby="pattern-heading">
+    <div class="translated-bridge">
+      <div class="translated-bridge-mark" aria-hidden="true">→</div>
+      <div>
+        <h2 id="pattern-heading">Notice the pattern?</h2>
+        <p>College often gives students a short instruction that assumes they already know the system behind it. When that happens, translate the sentence into three questions:</p>
+        <ol>
+          <li><strong>What does this actually mean?</strong></li>
+          <li><strong>What action do I need to take?</strong></li>
+          <li><strong>Who can confirm it for my situation?</strong></li>
+        </ol>
+        <p>That is not “needing too much help.” That is how you learn a system.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section narrow">
+    <div class="two-column">
+      <article class="feature cyan">
+        <p class="eyebrow">Need the vocabulary?</p>
+        <h2>Use the College Decoder.</h2>
+        <p>Search 40+ common college terms in plain language.</p>
+        <p><a href="hidden-rules.html"><strong>Decode a term</strong></a></p>
+      </article>
+      <article class="feature good">
+        <p class="eyebrow">Need a human?</p>
+        <h2>Use “Who Handles This?”</h2>
+        <p>Start with the problem, not the office name.</p>
+        <p><a href="who-to-ask.html"><strong>Find the right starting place</strong></a></p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><strong>You Belong, Actually</strong></div>
+    <div>Accessibility-first design • No login required • No student data needed</div>
+    <nav aria-label="Footer navigation" class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#start">Start Here</a>
+      <a href="college-translated.html">College, Translated</a>
+      <a href="hidden-rules.html">College Decoder</a>
+      <a href="who-to-ask.html">Need Help?</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

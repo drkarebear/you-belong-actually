@@ -1,825 +1,178 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="You Belong, Actually helps community college students make sense of hard moments, hidden college rules, and the next step forward.">
-  <title>You Belong, Actually</title>
-  <link rel="icon" type="image/png" href="favicon16.png">
-
-  <style>
-    :root {
-      --blue: #1239c7;
-      --blue-dark: #0b236f;
-      --cyan: #16c4f3;
-      --cyan-soft: #eafaff;
-      --blue-soft: #eef2ff;
-      --ink: #172033;
-      --muted: #526078;
-      --line: #d8e1ee;
-      --paper: #ffffff;
-      --page: #f7fbff;
-      --success: #1f6f52;
-      --warm: #fff8e8;
-      --shadow: 0 16px 38px rgba(20, 48, 94, 0.10);
-      --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --content: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top right, rgba(22, 196, 243, 0.11), transparent 30rem),
-        var(--page);
-      line-height: 1.6;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: var(--blue-dark);
-      text-underline-offset: 0.18em;
-      text-decoration-thickness: 0.09em;
-    }
-
-    a:hover {
-      text-decoration-thickness: 0.14em;
-    }
-
-    :focus-visible {
-      outline: 4px solid #ffbf47;
-      outline-offset: 4px;
-      border-radius: 6px;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: 1rem;
-      top: -5rem;
-      z-index: 999;
-      background: #111;
-      color: #fff;
-      padding: .8rem 1rem;
-      border-radius: 0 0 10px 10px;
-      font-weight: 800;
-    }
-
-    .skip-link:focus {
-      top: 0;
-    }
-
-    .site-header {
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(10px);
-    }
-
-    .nav-wrap {
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: .8rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: .7rem;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 900;
-      letter-spacing: -.02em;
-    }
-
-    .brand img {
-      width: 46px;
-      height: 46px;
-      object-fit: contain;
-    }
-
-    .brand span {
-      font-size: 1.02rem;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .35rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .nav-links a {
-      display: inline-block;
-      padding: .6rem .78rem;
-      border-radius: 999px;
-      font-weight: 750;
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      background: var(--blue-soft);
-    }
-
-    main {
-      display: block;
-    }
-
-    .hero {
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: clamp(2.5rem, 7vw, 5.5rem) 1rem 2.5rem;
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      align-items: center;
-      gap: clamp(1.5rem, 5vw, 4.5rem);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      margin: 0 0 .9rem;
-      padding: .4rem .8rem;
-      border-radius: 999px;
-      background: var(--cyan-soft);
-      color: var(--blue-dark);
-      font-weight: 850;
-      font-size: .92rem;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.15;
-      letter-spacing: -.025em;
-      color: var(--blue-dark);
-    }
-
-    h1 {
-      font-size: clamp(2.6rem, 7vw, 5.6rem);
-      margin: 0 0 1rem;
-      max-width: 10ch;
-    }
-
-    .hero-lede {
-      font-size: clamp(1.12rem, 2vw, 1.35rem);
-      max-width: 42rem;
-      margin: 0 0 1rem;
-    }
-
-    .hero-sub {
-      color: var(--muted);
-      max-width: 42rem;
-      margin: 0 0 1.5rem;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .75rem;
-      margin-top: 1.35rem;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: .78rem 1.05rem;
-      border-radius: 999px;
-      border: 2px solid var(--blue);
-      background: var(--blue);
-      color: white;
-      text-decoration: none;
-      font-weight: 850;
-      box-shadow: 0 8px 18px rgba(18,57,199,.18);
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(18,57,199,.23);
-    }
-
-    .button.secondary {
-      background: white;
-      color: var(--blue-dark);
-    }
-
-    .hero-art {
-      justify-self: center;
-      width: min(360px, 80vw);
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      background:
-        radial-gradient(circle at center, rgba(22, 196, 243, .22), transparent 58%),
-        white;
-      border: 1px solid var(--line);
-      border-radius: 42% 58% 52% 48% / 54% 44% 56% 46%;
-      box-shadow: var(--shadow);
-      padding: 1.7rem;
-    }
-
-    .hero-art img {
-      width: 100%;
-    }
-
-    .section {
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: 3.2rem 1rem;
-    }
-
-    .section-heading {
-      max-width: 720px;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin: 0 0 .6rem;
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.06rem;
-    }
-
-    .moment-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 1rem;
-    }
-
-    .moment-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 250px;
-      padding: 1.3rem;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 10px 26px rgba(20,48,94,.07);
-    }
-
-    .moment-card:nth-child(2n) {
-      background: var(--blue-soft);
-    }
-
-    .moment-card:nth-child(3n) {
-      background: var(--cyan-soft);
-    }
-
-    .icon-bubble {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      background: var(--blue);
-      color: white;
-      font-size: 1.2rem;
-      font-weight: 900;
-      margin-bottom: .9rem;
-    }
-
-    .moment-card h3 {
-      margin: 0 0 .55rem;
-      font-size: 1.25rem;
-    }
-
-    .moment-card p {
-      margin: 0 0 1rem;
-      color: var(--muted);
-    }
-
-    .moment-card a {
-      margin-top: auto;
-      font-weight: 850;
-    }
-
-    .plain-language {
-      margin-top: 2rem;
-      padding: 1.3rem 1.4rem;
-      border-left: 6px solid var(--cyan);
-      border-radius: var(--radius-md);
-      background: white;
-      box-shadow: 0 8px 20px rgba(20,48,94,.05);
-    }
-
-    .plain-language strong {
-      color: var(--blue-dark);
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .feature {
-      border-radius: var(--radius-xl);
-      padding: clamp(1.4rem, 4vw, 2rem);
-      border: 1px solid var(--line);
-      background: white;
-      box-shadow: var(--shadow);
-    }
-
-    .feature.blue {
-      background: var(--blue-dark);
-      color: white;
-      border-color: transparent;
-    }
-
-    .feature.blue h2,
-    .feature.blue h3,
-    .feature.blue a {
-      color: white;
-    }
-
-    .feature.cyan {
-      background: var(--cyan-soft);
-    }
-
-    .feature h2 {
-      margin-top: 0;
-      font-size: clamp(1.65rem, 3vw, 2.35rem);
-    }
-
-    .feature p:last-child {
-      margin-bottom: 0;
-    }
-
-    .step-list {
-      display: grid;
-      gap: .75rem;
-      margin: 1.2rem 0 0;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: .8rem;
-      align-items: start;
-      padding: .85rem;
-      border-radius: 14px;
-      background: rgba(255,255,255,.10);
-    }
-
-    .step-number {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: white;
-      color: var(--blue-dark);
-      font-weight: 900;
-    }
-
-    .starter {
-      scroll-margin-top: 100px;
-      padding: 1.15rem 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .starter:first-of-type {
-      border-top: 0;
-    }
-
-    .starter h3 {
-      margin-bottom: .3rem;
-    }
-
-    .starter p {
-      margin-top: 0;
-    }
-
-    .choice-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-      margin-top: .8rem;
-    }
-
-    .choice {
-      display: inline-block;
-      padding: .55rem .75rem;
-      border-radius: 12px;
-      background: var(--blue-soft);
-      color: var(--blue-dark);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .choice:hover {
-      background: #dce4ff;
-    }
-
-    .resource-strip {
-      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
-      color: white;
-    }
-
-    .resource-strip .section-heading h2,
-    .resource-strip .section-heading p {
-      color: white;
-    }
-
-    .resource-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 1rem;
-    }
-
-    .resource-card {
-      background: white;
-      color: var(--ink);
-      border-radius: var(--radius-lg);
-      padding: 1.2rem;
-    }
-
-    .resource-card h3 {
-      margin-top: 0;
-    }
-
-    .footer {
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: 2rem 1rem 3.5rem;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .footer-inner {
-      padding-top: 1.3rem;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 860px) {
-      .hero,
-      .two-column {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-art {
-        order: -1;
-        width: min(240px, 62vw);
-      }
-
-      .moment-grid,
-      .resource-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      h1 {
-        max-width: 13ch;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .nav-wrap {
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        width: 100%;
-      }
-
-      .moment-grid,
-      .resource-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 2rem;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .moment-card {
-        min-height: 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
-        animation: none !important;
-      }
-
-      .button:hover {
-        transform: none;
-      }
-    }
-  </style>
-</head>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="You Belong, Actually helps community college students make sense of hard moments, hidden college rules, and the next step forward." name="description"/>
+<title>You Belong, Actually</title>
+<link href="favicon16.png" rel="icon" type="image/png"/>
+<link href="styles.css" rel="stylesheet"/>
+<meta content="#1239c7" name="theme-color"/></head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-
-  <header class="site-header">
-    <nav class="nav-wrap" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="You Belong, Actually home">
-        <img src="favicon16.png" alt="">
-        <span>You Belong, Actually</span>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#start">Start Here</a></li>
-        <li><a href="#hidden-curriculum">College Decoder</a></li>
-        <li><a href="#practical-help">Need Help?</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main-content">
-    <section class="hero" id="top">
-      <div>
-        <p class="eyebrow">For community college students</p>
-        <h1>You Belong, Actually.</h1>
-
-        <p class="hero-lede">
-          College can make almost anyone wonder whether they are cut out for it,
-          especially when everyone else seems to know rules nobody explained.
-        </p>
-
-        <p class="hero-sub">
-          This is not a pep-talk site. It is a place to figure out what is happening,
-          what it might mean, and one useful thing you can do next.
-        </p>
-
-        <div class="button-row">
-          <a class="button" href="#start">Tell me what is going on</a>
-          <a class="button secondary" href="#hidden-curriculum">Show me the hidden rules</a>
-        </div>
-      </div>
-
-      <div class="hero-art" aria-hidden="true">
-        <img src="favicon16.png" alt="">
-      </div>
-    </section>
-
-    <section class="section" id="start" aria-labelledby="start-heading">
-      <div class="section-heading">
-        <p class="eyebrow">Start with the moment</p>
-        <h2 id="start-heading">What is going on right now?</h2>
-        <p>
-          You do not need to diagnose yourself or know the right college word.
-          Pick the thought that feels closest.
-        </p>
-      </div>
-
-      <div class="moment-grid">
-        <article class="moment-card">
-          <div class="icon-bubble" aria-hidden="true">1</div>
-          <h3>I feel like I do not belong.</h3>
-          <p>Maybe everyone else seems more prepared, more confident, or more “college.”</p>
-          <a href="#belong">Start here: I do not belong</a>
-        </article>
-
-        <article class="moment-card">
-          <div class="icon-bubble" aria-hidden="true">2</div>
-          <h3>I got a bad grade.</h3>
-          <p>One assignment suddenly feels like proof that you cannot do this.</p>
-          <a href="#grade">Start here: bad grade</a>
-        </article>
-
-        <article class="moment-card">
-          <div class="icon-bubble" aria-hidden="true">3</div>
-          <h3>I am afraid to ask for help.</h3>
-          <p>You need something, but asking feels embarrassing or risky.</p>
-          <a href="#ask">Start here: asking for help</a>
-        </article>
-
-        <article class="moment-card">
-          <div class="icon-bubble" aria-hidden="true">4</div>
-          <h3>Everyone else seems to know what they are doing.</h3>
-          <p>College came with instructions that somehow never reached you.</p>
-          <a href="#everyone-knows">Start here: hidden rules</a>
-        </article>
-
-        <article class="moment-card">
-          <div class="icon-bubble" aria-hidden="true">5</div>
-          <h3>I am falling behind.</h3>
-          <p>There is too much, you are stuck, and you do not know which thing to fix first.</p>
-          <a href="#behind">Start here: falling behind</a>
-        </article>
-
-        <article class="moment-card">
-          <div class="icon-bubble" aria-hidden="true">6</div>
-          <h3>I do not know who to ask.</h3>
-          <p>You know there is a problem. You just do not know which person or office handles it.</p>
-          <a href="#who">Start here: finding the right person</a>
-        </article>
-      </div>
-
-      <div class="plain-language">
-        <strong>A thing worth knowing:</strong>
-        not knowing how college works yet is different from not being capable of college.
-        A lot of college knowledge is learned after you arrive.
-      </div>
-    </section>
-
-    <section class="section" aria-label="How this site helps">
-      <div class="two-column">
-        <article class="feature blue">
-          <h2>One hard moment does not get to write the whole story.</h2>
-          <p>
-            When something goes wrong, your brain may jump straight from
-            “this is hard” to “I am not good at this.” We slow that jump down.
-          </p>
-
-          <div class="step-list" aria-label="A simple three-step process">
-            <div class="step">
-              <span class="step-number" aria-hidden="true">1</span>
-              <div><strong>Name what happened.</strong><br>Keep the problem specific.</div>
-            </div>
-            <div class="step">
-              <span class="step-number" aria-hidden="true">2</span>
-              <div><strong>Separate the event from the story.</strong><br>A setback is information, not an identity.</div>
-            </div>
-            <div class="step">
-              <span class="step-number" aria-hidden="true">3</span>
-              <div><strong>Choose one next move.</strong><br>Small and concrete beats perfect.</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="feature cyan" id="hidden-curriculum">
-          <p class="eyebrow">College Decoder</p>
-          <h2>College has a hidden curriculum.</h2>
-          <p>
-            Office hours. Add codes. Prerequisites. Rubrics. Financial aid holds.
-            Asking for an extension. Talking to a professor. Using tutoring.
-          </p>
-          <p>
-            These are learned skills, not secret evidence that everyone else belongs more than you do.
-          </p>
-          <p><a href="#everyone-knows"><strong>Show me the stuff nobody explained</strong></a></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="quick-help-heading">
-      <div class="section-heading">
-        <p class="eyebrow">Quick help</p>
-        <h2 id="quick-help-heading">Pick one next step.</h2>
-        <p>You do not need to solve the whole semester tonight.</p>
-      </div>
-
-      <div class="feature">
-        <div class="starter" id="belong">
-          <h3>If you are thinking, “I do not belong here”</h3>
-          <p>
-            Try replacing the big conclusion with a smaller question:
-            <strong>What happened that made me feel this way?</strong>
-          </p>
-          <div class="choice-row">
-            <a class="choice" href="#ask">I need to ask someone something</a>
-            <a class="choice" href="#grade">A grade triggered this</a>
-            <a class="choice" href="#everyone-knows">I feel behind everyone else</a>
-          </div>
-        </div>
-
-        <div class="starter" id="grade">
-          <h3>If you got a bad grade</h3>
-          <p>
-            First, find out what the grade is telling you. Was the issue missing work,
-            misunderstanding, evidence, organization, time, or something else?
-          </p>
-          <p><strong>Next move:</strong> identify one thing you would change on the next assignment.</p>
-        </div>
-
-        <div class="starter" id="ask">
-          <h3>If asking for help feels scary</h3>
-          <p>
-            You do not need a perfect explanation. A useful question can be one sentence:
-            <strong>“I am stuck on ___, and I tried ___. What should I do next?”</strong>
-          </p>
-        </div>
-
-        <div class="starter" id="everyone-knows">
-          <h3>If everyone else seems to know what they are doing</h3>
-          <p>
-            Some students arrive already knowing college vocabulary and routines.
-            Others learn them here. Familiarity is not the same thing as ability.
-          </p>
-          <p><strong>Next move:</strong> write down the one rule, term, or process that feels unclear.</p>
-        </div>
-
-        <div class="starter" id="behind">
-          <h3>If you are falling behind</h3>
-          <p>
-            Do not start with everything. Start with what is still recoverable.
-          </p>
-          <div class="choice-row">
-            <span class="choice">What is due next?</span>
-            <span class="choice">What is worth the most?</span>
-            <span class="choice">What can still be submitted?</span>
-            <span class="choice">Who needs to hear from me?</span>
-          </div>
-        </div>
-
-        <div class="starter" id="who">
-          <h3>If you do not know who to ask</h3>
-          <p>
-            Start with the person closest to the problem. For a class question, start with the instructor.
-            For registration, financial aid, counseling, technology, or basic needs, use the campus office that handles that area.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="resource-strip" id="practical-help">
-      <div class="section">
-        <div class="section-heading">
-          <p class="eyebrow">This matters too</p>
-          <h2>Sometimes the problem is not school.</h2>
-          <p>
-            Work, food, housing, caregiving, transportation, technology, money, and health
-            can make school harder. A real-life barrier is not a character flaw.
-          </p>
-        </div>
-
-        <div class="resource-grid">
-          <article class="resource-card">
-            <h3>I need practical support.</h3>
-            <p>Look for your college’s basic needs center, food resources, emergency grants, transportation help, or housing support.</p>
-          </article>
-
-          <article class="resource-card">
-            <h3>I need academic support.</h3>
-            <p>Try tutoring, a writing center, library help, supplemental instruction, office hours, or an instructor appointment.</p>
-          </article>
-
-          <article class="resource-card">
-            <h3>I need help navigating college.</h3>
-            <p>Counseling, admissions, financial aid, disability services, and student support programs can help untangle the system.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about" aria-labelledby="about-heading">
-      <div class="feature">
-        <p class="eyebrow">About the project</p>
-        <h2 id="about-heading">Built for the moment when doubt gets loud.</h2>
-        <p>
-          <em>You Belong, Actually</em> is designed for community college students,
-          especially students who are first in their families to navigate college or who
-          did not arrive already knowing the unwritten rules.
-        </p>
-        <p>
-          The goal is simple: make college feel more understandable, make asking for help
-          easier, and help students find a next step without turning every challenge into a
-          judgment about themselves.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <div><strong>You Belong, Actually</strong></div>
-      <div>Accessible by design • No login required • No student data needed</div>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+<nav aria-label="Main navigation" class="nav-wrap">
+<a aria-label="You Belong, Actually home" class="brand" href="index.html">
+<img alt="" src="favicon16.png"/>
+<span>You Belong, Actually</span>
+</a>
+<ul class="nav-links">
+<li><a href="#start">Start Here</a></li><li><a href="college-translated.html">College, Translated</a></li>
+<li><a href="hidden-rules.html">College Decoder</a></li>
+<li><a href="who-to-ask.html">Need Help?</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+</nav>
+</header>
+<main id="main-content">
+<section class="hero">
+<div>
+<p class="eyebrow">For community college students</p>
+<h1>You Belong, Actually.</h1>
+<p class="hero-lede">
+        College can make almost anyone wonder whether they are cut out for it,
+        especially when everyone else seems to know rules nobody explained.
+      </p>
+<p class="hero-sub">
+        This is not a pep-talk site. It is a place to figure out what is happening,
+        what it might mean, and one useful thing you can do next.
+      </p>
+<div class="button-row">
+<a class="button" href="#start">Tell me what is going on</a>
+<a class="button secondary" href="hidden-rules.html">Decode a college term</a>
+</div>
+</div>
+<div aria-hidden="true" class="hero-art">
+<img alt="" src="favicon16.png"/>
+</div>
+</section>
+<section aria-labelledby="start-heading" class="section" id="start">
+<div class="section-heading">
+<p class="eyebrow">Start with the moment</p>
+<h2 id="start-heading">What is going on right now?</h2>
+<p>You do not need to diagnose yourself or know the right college word. Pick the thought that feels closest.</p>
+<p class="page-note">You do not need to read this site in order. Start with one situation and leave when you have a useful next step.</p></div>
+<div class="moment-grid">
+<article class="moment-card">
+<div aria-hidden="true" class="icon-bubble">1</div>
+<h3>I feel like I do not belong.</h3>
+<p>Maybe everyone else seems more prepared, more confident, or more “college.”</p>
+<a href="not-cut-out.html">Start here: I do not belong</a>
+</article>
+<article class="moment-card">
+<div aria-hidden="true" class="icon-bubble">2</div>
+<h3>I got a bad grade.</h3>
+<p>One assignment suddenly feels like proof that you cannot do this.</p>
+<a href="bad-grade.html">Start here: bad grade</a>
+</article>
+<article class="moment-card">
+<div aria-hidden="true" class="icon-bubble">3</div>
+<h3>I am afraid to ask for help.</h3>
+<p>You need something, but asking feels embarrassing or risky.</p>
+<a href="ask-for-help.html">Start here: asking for help</a>
+</article>
+<article class="moment-card">
+<div aria-hidden="true" class="icon-bubble">4</div>
+<h3>Everyone else seems to know what they are doing.</h3>
+<p>College came with instructions that somehow never reached you.</p>
+<a href="hidden-rules.html">Start here: hidden rules</a>
+</article>
+<article class="moment-card">
+<div aria-hidden="true" class="icon-bubble">5</div>
+<h3>I am falling behind.</h3>
+<p>There is too much, you are stuck, and you do not know which thing to fix first.</p>
+<a href="falling-behind.html">Start here: falling behind</a>
+</article>
+<article class="moment-card">
+<div aria-hidden="true" class="icon-bubble">6</div>
+<h3>I do not know who to ask.</h3>
+<p>You know there is a problem, but you do not know which person or office handles it.</p>
+<a href="who-to-ask.html">Start here: finding the right person</a>
+</article>
+</div>
+<div class="plain-language">
+<strong>A thing worth knowing:</strong>
+      not knowing how college works yet is different from not being capable of college.
+      A lot of college knowledge is learned after you arrive.
     </div>
-  </footer>
+</section>
+<section aria-label="How this site helps" class="section">
+<div class="two-column">
+<article class="feature blue">
+<h2>One hard moment does not get to write the whole story.</h2>
+<p>When something goes wrong, your brain may jump from “this is hard” to “I am not good at this.” We slow that jump down.</p>
+<div aria-label="A simple three-step process" class="step-list">
+<div class="step"><span aria-hidden="true" class="step-number">1</span><div><strong>Name what happened.</strong><br/>Keep the problem specific.</div></div>
+<div class="step"><span aria-hidden="true" class="step-number">2</span><div><strong>Separate the event from the story.</strong><br/>A setback is information, not an identity.</div></div>
+<div class="step"><span aria-hidden="true" class="step-number">3</span><div><strong>Choose one next move.</strong><br/>Small and concrete beats perfect.</div></div>
+</div>
+</article>
+<article class="feature cyan">
+<p class="eyebrow">College Decoder</p>
+<h2>College has a hidden curriculum.</h2>
+<p>Office hours. Add codes. C1000. Cal-GETC. Academic notice. FAFSA. Waitlists. Transfer language. The decoder now covers 40+ terms in plain language.</p>
+<p>Those are learned systems, not secret evidence that everyone else belongs more than you do.</p>
+<p><a href="hidden-rules.html"><strong>Search the College Decoder</strong></a></p>
+</article>
+</div>
+</section>
+<section aria-labelledby="translated-home-heading" class="section" id="college-translated"><div class="feature warm"><p class="eyebrow">College, Translated</p><h2 id="translated-home-heading">Heard the words. Still not sure what to do?</h2><p>College instructions can sound simple only because they leave out the steps everyone is expected to somehow know.</p><p><a href="college-translated.html"><strong>Translate the sentence into a next step</strong></a></p></div></section><section class="resource-strip" id="practical-help">
+<div class="section">
+<div class="section-heading">
+<p class="eyebrow">This matters too</p>
+<h2>Sometimes the problem is not school.</h2>
+<p>Work, food, housing, caregiving, transportation, technology, money, and health can make school harder. A real-life barrier is not a character flaw.</p>
+</div>
+<div class="resource-grid">
+<article class="resource-card">
+<h3>I need practical support.</h3>
+<p>Look for your college’s basic needs center, food resources, emergency grants, transportation help, or housing support.</p><p><a href="who-to-ask.html#practical-support"><strong>Find the right starting place</strong></a></p>
+</article>
+<article class="resource-card">
+<h3>I need academic support.</h3>
+<p>Try tutoring, a writing center, library help, supplemental instruction, office hours, or an instructor appointment.</p><p><a href="who-to-ask.html#academic-support"><strong>Find academic support</strong></a></p>
+</article>
+<article class="resource-card">
+<h3>I need help navigating college.</h3>
+<p>Counseling, admissions, financial aid, disability services, and student support programs can help untangle the system.</p><p><a href="who-to-ask.html"><strong>Use the “Who Handles This?” guide</strong></a></p>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="start-anywhere-heading" class="section" id="start-anywhere">
+<div class="feature good">
+<p class="eyebrow">Not sure where to begin?</p>
+<h2 id="start-anywhere-heading">You can start anywhere.</h2>
+<p>If none of the six situations fits exactly, choose the closest one. You are not taking a test. The point is to get closer to the information, person, or next move you need.</p>
+<div class="quick-links">
+<a href="who-to-ask.html">Help me find the right person</a>
+<a href="hidden-rules.html">Explain a college rule or term</a>
+<a href="falling-behind.html">Help me sort what is still possible</a>
+</div>
+</div>
+</section>
+<section aria-labelledby="about-heading" class="section" id="about">
+<div class="feature">
+<p class="eyebrow">About the project</p>
+<h2 id="about-heading">Built for the moment when doubt gets loud.</h2>
+<p><em>You Belong, Actually</em> is designed for community college students, especially students who are learning college systems as they go.</p>
+<p>The goal is to make college more understandable, make help-seeking easier, and turn a hard moment into a concrete next step.</p>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div><strong>You Belong, Actually</strong></div>
+<div>Accessibility-first design • No login required • No student data needed</div>
+<nav aria-label="Footer navigation" class="footer-nav">
+<a href="index.html">Home</a>
+<a href="index.html#start">Start Here</a><a href="college-translated.html">College, Translated</a>
+<a href="hidden-rules.html">College Decoder</a>
+<a href="who-to-ask.html">Need Help?</a>
+<a href="index.html#about">About</a>
+</nav>
+</div>
+</footer>
 </body>
 </html>
